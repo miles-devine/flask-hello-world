@@ -54,6 +54,7 @@ def db_select():
     SELECT * FROM Basketball;
     ''')
     records = cur.fetchall()
+    conn.close()
     response_string = ""
     response_string += "<table>"
     for player in records:
@@ -63,4 +64,10 @@ def db_select():
         response_string+="</tr>"
     response_string+="</table>"
     return response_string
+
+# @app.route('/db_drop')
+# def drop():
+#     conn = psycopg2.connect("postgresql://lab_10_postgres_pgmg_user:gZ1uo6uysFReEJGuDHhs6Gta7jXF7T4K@dpg-dboe27rm8hqs738ad2h0-a/lab_10_postgres_pgmg")
+
+
 
